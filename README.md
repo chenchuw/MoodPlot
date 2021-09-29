@@ -37,3 +37,21 @@ I also tried the single text classification feature. In short, I built a machine
 
 ![Classification#1](https://github.com/Mockingbirdzzz/EC601_Project2/blob/main/Screen%20Shot%202021-09-29%20at%2002.17.07.png?raw=true)
 ![Classification#2](https://github.com/Mockingbirdzzz/EC601_Project2/blob/main/Screen%20Shot%202021-09-29%20at%2002.17.28.png?raw=true)
+
+# Twitter API
+
+(base) francischen@Ccws-Macbook-Pro EC601 % python Twitter_Retreive.py
+tweepy + oauth!
+@CoderDrax  Latest Covid Updates:-
+                   Total Cases : 233,569,801 
+Active Cases :18,399,778    Closed… https://t.co/26sbqm3ZJd
+RT @chinryu: 日本のツイートトレンドTOP10は['ゴルゴ13', '岸田さん', '決選投票', 'さいとう・たかをさん死去', '高市さん', 'すい臓がんのため死去', '本人の遺志', 'オリコン', 'いとう先生', '#自民党総裁選']です #Pytho…
+日本のツイートトレンドTOP10は['ゴルゴ13', '岸田さん', '決選投票', 'さいとう・たかをさん死去', '高市さん', 'すい臓がんのため死去', '本人の遺志', 'オリコン', 'いとう先生', '#自民党総裁選']です #Python #Tweepy
+hello tweepy ですよん
+@CoderDrax  Latest Covid Updates:-
+                   Total Cases : 233,569,801 
+Active Cases :18,399,778    Closed… https://t.co/1btK1p5Len
+hello tweepy tweet
+hello tweepy tweet https://t.co/9RsHR0XAIU
+日本のツイートトレンドTOP10は['ゴルゴ13', 'さいとう・たかをさん死去', 'オリコン', '本人の遺志', 'すい臓がんのため死去', 'いとう先生', '#出産直後の感想教えて', '#招き猫の日', '… https://t.co/Tfa7oqPGQA
+hello tweepy
