@@ -28,7 +28,8 @@ As we observed here, from a scale of -0.9 to 0.9, the NLP returns the sentiment 
 
 # AutoML Sentiment Analysis
 Second, I investigated Google's AutoML sentiment analysis. In short, I built a machine learning model to analyze attitudes within text & documents.
-![alt text](http://url/to/img.png)
+![Sentiment#1](https://github.com/Mockingbirdzzz/EC601_Project2/blob/main/Screen%20Shot%202021-09-29%20at%2002.10.23.png?raw=true)
+![Sentiment#2](https://github.com/Mockingbirdzzz/EC601_Project2/blob/main/Screen%20Shot%202021-09-29%20at%2002.12.41.png?raw=true)
 
 # AutoML Text & Document Classification
 I also tried the text classification feature. In short, I built a machine learning model to classify content into a custom set of categories.
