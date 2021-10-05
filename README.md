@@ -1,7 +1,30 @@
 ### EC601_Project2
 
 # Cloud Natural Language API
-First I used Google's Cloud Natural Language API. It is Google's proven pre-trained model for general content classification; sentiment analysis; entity recognition, etc. After getting access to the client library, I connected to the Cloud and tested sentiments for several sentences using my python script. The script is called language.py in this repository. A snippet of the output is attached below:
+First I used Google's Cloud Natural Language API. It is Google's proven pre-trained model for general content classification; sentiment analysis; entity recognition, etc. After getting access to the client library, I connected to the Cloud and tested sentiments for several sentences using my python script. The script is called language.py in this repository. 
+
+*Code example*
+```python
+
+# Imports the Google Cloud client library
+from google.cloud import language_v1
+
+
+# Instantiates a client
+client = language_v1.LanguageServiceClient()
+
+# The text to analyze
+text = input("Give me a sentence:\n")
+document = language_v1.Document(content=text, type_=language_v1.Document.Type.PLAIN_TEXT)
+
+# Detects the sentiment of the text
+sentiment = client.analyze_sentiment(request={'document': document}).document_sentiment
+
+print("Text: {}".format(text))
+print("Sentiment: {:.1f}, {:.1f}".format(sentiment.score, sentiment.magnitude))
+```
+
+A snippet of the output is attached below:
 
 (base) francischen@Ccws-Macbook-Pro EC601 % python language.py\
 Give me a sentence:\
