@@ -119,3 +119,11 @@ hello tweepy tweet\
 hello tweepy tweet https://t.co/9RsHR0XAIU\
 日本のツイートトレンドTOP10は['ゴルゴ13', 'さいとう・たかをさん死去', 'オリコン', '本人の遺志', 'すい臓がんのため死去', 'いとう先生', '#出産直後の感想教えて', '#招き猫の日', '… \https://t.co/Tfa7oqPGQA\
 hello tweepy\
+
+# User Story
+
+> Story One
+>
+> As a pop music lover, I would like to see what songs or singers are on trend now, and I use the social media analyzer to get myself a popular trending music playlist.
+
+> Story Two
