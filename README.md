@@ -137,8 +137,11 @@ hello tweepy\
 # MVP
 
 > A module that can analysis a given context and return a sentiment score
+> 
 > A module that can retrieve text from social media posts
+> 
 > A user interface that ask user for basic inputs
+> 
 
 # Modular Design
 
