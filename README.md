@@ -133,3 +133,13 @@ hello tweepy\
 > Story #3
 > 
 > A new movie has came out! I am hesitating if I should watch it. So I use the social media analyzer to get people's reation to that movie so I can decide whether watch it or not.
+
+# MVP
+
+> A module that can analysis a given context and return a sentiment score
+> A module that can retrieve text from social media posts
+> A user interface that ask user for basic inputs
+
+# Modular Design
+
+![modular_design](https://github.com/Mockingbirdzzz/EC601_Project2/blob/main/Screen%20Shot%202021-10-05%20at%2022.31.20.png?raw=true)
