@@ -122,8 +122,12 @@ hello tweepy\
 
 # User Story
 
-> Story One
+> Story #1
 >
 > As a pop music lover, I would like to see what songs or singers are on trend now, and I use the social media analyzer to get myself a popular trending music playlist.
 
-> Story Two
+> Story #2
+> I live in New York City and there's a new policy enacted by our mayor. I would like to know people's sentiments toward the new policy.
+
+> Story #3
+> A new movie has came out! I am hesitating if I should watch it. So I use the social media analyzer to get people's reation to that movie so I can decide whether watch it or not.
