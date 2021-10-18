@@ -120,6 +120,12 @@ hello tweepy tweet https://t.co/9RsHR0XAIU\
 日本のツイートトレンドTOP10は['ゴルゴ13', 'さいとう・たかをさん死去', 'オリコン', '本人の遺志', 'すい臓がんのため死去', 'いとう先生', '#出産直後の感想教えて', '#招き猫の日', '… \https://t.co/Tfa7oqPGQA\
 hello tweepy\
 
+# The Social Media Analyzer
+
+To take twitter retriever's output as the input for the Google NLP, we can build a social media analyzer for a specific user by analyzing all the user's tweets and return a trend of his or her attitude or mood changes as time pass by.
+
+But since I haven't got the approval of the twitter developer account, I don't have my own consumer key and thus I can not do any testing on the analyzer. But the idea for the social media analyzer is that we can take one specific user and analyze each of his tweet on a timeline, and we can determine the trend of his or her mood changing.
+
 # User Story
 
 > Story #1
