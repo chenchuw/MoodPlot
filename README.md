@@ -146,8 +146,7 @@ But since I haven't got the approval of the twitter developer account, I don't h
 > 
 > A module that can retrieve text from social media posts
 > 
-> A user interface that ask user for basic inputs
-> 
+
 
 # Modular Design
 
