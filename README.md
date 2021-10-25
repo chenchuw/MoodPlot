@@ -124,7 +124,123 @@ hello tweepy\
 
 To take twitter retriever's output as the input for the Google NLP, we can build a social media analyzer for a specific user by analyzing all the user's tweets and return a trend of his or her attitude or mood changes as time pass by.
 
-But since I haven't got the approval of the twitter developer account, I don't have my own consumer key and thus I can not do any testing on the analyzer. But the idea for the social media analyzer is that we can take one specific user and analyze each of his tweet on a timeline, and we can determine the trend of his or her mood changing.
+``` python
+#!/usr/bin/env python
+# encoding: utf-8
+
+from google.cloud import language_v1
+import requests
+from requests import session
+import tweepy # https://github.com/tweepy/tweepy
+import json
+#Twitter API credentials
+consumer_key = "8KMps10UjAdfCZoLzUMOjJtaX"
+consumer_secret = "wstgm1dNVCgnPWKiBJ1Z7EPnIjQGzrYgLwvUwvC6N2tQ7z1zFv"
+bearer_token = "AAAAAAAAAAAAAAAAAAAAAL5iUAEAAAAAmo6FYRjqdKlI3cNziIm%2BHUQB9Xs%3DS31pj0mxARMTOk2g9dvQ1yP9wknvY4FPBPUlE00smJcncw4dPR"
+
+class Twitter_feed:
+
+    def __init__(self,comsumer_Key, consumer_Secret):
+        self.consumer_key = comsumer_Key
+        self.consumer_secret = consumer_Secret
+        self.bearer_token = bearer_token
+        self.avg_sentiment = []
+
+    def sentiment_analysis(self):
+        auth = tweepy.AppAuthHandler(consumer_key, consumer_secret)
+        try:
+            api = tweepy.API(auth)               
+            for tweet in tweepy.Cursor(api.search_tweets, q='tweepy').items(10):
+                text = tweet.text
+                document = language_v1.Document(content=text, type_=language_v1.Document.Type.PLAIN_TEXT)
+                sentiment = client.analyze_sentiment(request={'document': document}).document_sentiment
+                print("Text: {}".format(text))
+                print("Sentiment: {:.1f}, {:.1f}\n-------------------------".format(sentiment.score, sentiment.magnitude))
+                self.avg_sentiment.append(round(sentiment.score,3))
+
+        except tweepy.TweepError:
+            print('Error! Failed to get request token.')
+
+if __name__ == '__main__':
+    client = language_v1.LanguageServiceClient()
+    twitter_acount = Twitter_feed(consumer_key, consumer_secret)
+    twitter_acount.sentiment_analysis()
+    print(f"{len(twitter_acount.avg_sentiment)} tweets are analyzed.")
+    print("The user's sentiment score trend is: ",twitter_acount.avg_sentiment)
+    
+```
+Sample output:
+
+(base) francischen@Ccws-Macbook-Pro EC601 % python analyzer.py
+Text: @CoderDrax  Latest Covid Updates:-
+                           Total Cases : 928,211… https://t.co/7Z40YpJPEn
+Sentiment: 0.2, 0.4
+-------------------------
+Text: Galina Vishnevskaya's 95th Birthday #Python #Tweepy https://t.co/HTFUGqGfcc
+Sentiment: 0.2, 0.2
+-------------------------
+Text: @CoderDrax  Latest Covid Updates:-
+                           Total Cases : 928,211… https://t.co/H3d58yQoKq
+Sentiment: 0.2, 0.4
+-------------------------
+Text: @CoderDrax  Latest Covid Updates:-
+                           Total Cases : 928,211… https://t.co/vZmoeyHhk9
+Sentiment: 0.2, 0.4
+-------------------------
+Text: RT @redoctbot: Here's the code used to make this post. 👍
+
+#python #tweepy #bot #birthday #programming #100DaysOfCode 
+
+https://t.co/2VzbWYf…
+Sentiment: 0.0, 0.8
+-------------------------
+Text: RT @redoctbot: Here's the code used to make this post. 👍
+
+#python #tweepy #bot #birthday #programming #100DaysOfCode 
+
+https://t.co/2VzbWYf…
+Sentiment: 0.0, 0.8
+-------------------------
+Text: RT @redoctbot: Here's the code used to make this post. 👍
+
+#python #tweepy #bot #birthday #programming #100DaysOfCode 
+
+https://t.co/2VzbWYf…
+Sentiment: 0.0, 0.8
+-------------------------
+Text: Here's the code used to make this post. 👍
+
+#python #tweepy #bot #birthday #programming #100DaysOfCode 
+
+https://t.co/2VzbWYfQlo
+Sentiment: 0.0, 1.0
+-------------------------
+Text: @CoderDrax  Latest Covid Updates:-
+                           Total Cases : 928,211… https://t.co/droNEBPVZt
+Sentiment: 0.2, 0.4
+-------------------------
+Text: 【プログラミング素人のはてなブログ】tweepyでTwitterの画像検索 https://t.co/RdkPrYz14Z
+Sentiment: -0.1, 0.1
+-------------------------
+Text: @CoderDrax  Latest Covid Updates:-
+                           Total Cases : 928,211… https://t.co/Pk8LIDBY0u
+Sentiment: 0.2, 0.4
+-------------------------
+Text: @CoderDrax  Latest Covid Updates:-
+                           Total Cases : 928,211… https://t.co/QPP7nEeyUc
+Sentiment: 0.2, 0.4
+-------------------------
+Text: Time for Rohit to retire!!  #INDvPAK
+Sentiment: 0.0, 0.7
+-------------------------
+Text: RT @akbarth3great: #python #tweepy #data #yetgen #datascience Python ile Twitter’dan Veri Çekme Nasıl Yapılır? https://t.co/a8DX6iDE8Q
+Sentiment: 0.0, 0.1
+-------------------------
+Text: RT @akbarth3great: #python #tweepy #data #yetgen #datascience Python ile Twitter’dan Veri Çekme Nasıl Yapılır? https://t.co/a8DX6iDE8Q
+Sentiment: 0.0, 0.1
+-------------------------
+15 tweets are analyzed.
+The user's sentiment score trend is:  [0.2, 0.2, 0.2, 0.2, 0.0, 0.0, 0.0, 0.0, 0.2, -0.1, 0.2, 0.2, 0.0, 0.0, 0.0]
 
 # User Story
 
