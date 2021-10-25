@@ -140,7 +140,6 @@ But since I haven't got the approval of the twitter developer account, I don't h
 > A module that can retrieve text from social media posts
 > 
 
-
 # Modular Design
 
 ![modular_design](https://github.com/Mockingbirdzzz/EC601_Project2/blob/main/Screen%20Shot%202021-10-05%20at%2022.31.20.png?raw=true)
