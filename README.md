@@ -258,4 +258,4 @@ The user's sentiment score trend is:  [0.2, 0.2, 0.2, 0.2, 0.0, 0.0, 0.0, 0.0, 0
 
 # Modular Design
 
-![modular_design](https://github.com/Mockingbirdzzz/EC601_Project2/blob/main/Screen%20Shot%202021-10-05%20at%2022.31.20.png?raw=true)
+![modular_design](https://github.com/chenchuw/EC601_Project2/blob/main/Screen%20Shot%202021-10-24%20at%2020.18.42.png?raw=true)
