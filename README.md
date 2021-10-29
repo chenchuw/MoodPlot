@@ -88,6 +88,8 @@ The user's average sentiment score is:  0.07499999999999998
 
 ![output](https://github.com/chenchuw/EC601_Project2/blob/main/output_1.png?raw=true)
 
+** In order to properly execute the moodplot.py, please prepare your Google NLP credential file first and replace my credential path with your credential file path in the 'Setting the path for the Google credentials' part in moodplot.py **
+ 
 # User Story
 
 Story #1
