@@ -78,12 +78,12 @@ if __name__ == '__main__':
 ```
 Sample I/O:
 
-Happy to see you here!
-Please enter a keyword that you are interested in: tesla
+Happy to see you here!\
+Please enter a keyword that you are interested in: tesla\
 Number of tweets you want to analyze for: 20
 
-20 tweets are analyzed.
-The user's sentiment score trend is:  -0.2 0.2 0.2 0.0 -0.4 -0.1 -0.4 -0.1 0.2 0.0 0.2 0.4 0.2 0.2 0.2 0.1 0.2 0.2 0.2 0.2
+20 tweets are analyzed.\
+The user's sentiment score trend is:  -0.2 0.2 0.2 0.0 -0.4 -0.1 -0.4 -0.1 0.2 0.0 0.2 0.4 0.2 0.2 0.2 0.1 0.2 0.2 0.2 0.2\
 The user's average sentiment score is:  0.07499999999999998
 
 ![output](https://github.com/chenchuw/EC601_Project2/blob/main/output.png?raw=true)
