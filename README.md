@@ -94,10 +94,11 @@ The user's average sentiment score is:  0.07499999999999998
 
 Story #1
 
-- I haven't seen my brother for a long time, I would like to see how is he doing by using the social media analyzer to anlayze his tweets over a long period and see is he happy or not.
-
+- I just heard the new that iPhone 13 was released and I am hesitating of whether I should update my old iPhone, and I'm too lazy to read the reviews about the product, so I use Moodplot to see people's feelings about iPhone 13 to help me decide buy it or not.
 
 # MVP
+
+- A module that can take inputs from user for topic and number of tweets for analysis
 
 - A module that can analysis a given context and return a sentiment score
  
@@ -109,7 +110,7 @@ Story #1
 
 ![modular_design](https://github.com/chenchuw/EC601_Project2/blob/main/Screen%20Shot%202021-10-24%20at%2020.18.42.png?raw=true)
 
-The following sections explain the details of how my app works.
+** The following sections explain the details of how my app works. **
 
 # Cloud Natural Language API
 First I used Google's Cloud Natural Language API. It is Google's proven pre-trained model for general content classification; sentiment analysis; entity recognition, etc. After getting access to the client library, I connected to the Cloud and tested sentiments for several sentences using my python script. The script is called language.py in this repository. 
