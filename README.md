@@ -108,7 +108,7 @@ Story #1
 
 # Modular Design
 
-![modular_design](https://github.com/chenchuw/EC601_Project2/blob/main/Screen%20Shot%202021-10-24%20at%2020.18.42.png?raw=true)
+![modular_design](https://github.com/chenchuw/EC601_Project2/blob/main/module%20design.png?raw=true)
 
 ** The following sections explain the details of how my app works. **
 
