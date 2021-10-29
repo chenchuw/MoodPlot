@@ -112,7 +112,7 @@ Story #1
 
 # Unit Testing
 
-Since my python script involves user inputs and the outputs are uncertain (the outputs are obtained from the most recent tweets), it is hard to or I have not yet found a way to implement a unit test for my script.
+Since my python script involves user inputs and the outputs are uncertain (the outputs are obtained from the most recent tweets which are constantly changing), it is hard to, i.e. I have not yet found a way to implement a unit test for my script.
 
 ** The following sections explain the details of how my app works. **
 
