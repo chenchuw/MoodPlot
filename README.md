@@ -2,7 +2,7 @@
 
 # Mood Plot
 
-By using Google NLP and Twitter API, I made an naive product called "Mood Plot" that could summarize people's sentiment on a topic over a certain amount of tweets related to the topic, and plot them on a graph for visualization. The source code is in the file analyzer.py, also displayed below:
+By using Google NLP and Twitter API, I made an naive product called "Mood Plot" that could summarize people's sentiment on a topic over a certain amount of tweets related to the topic. It could also plot the sentiment trend and the average sentiment score on a graph for visualization. The source code is in the file analyzer.py, also displayed below:
 
 ``` python
 # Copyright 2021 Chuwei Chen chenchuw@bu.edu
@@ -86,7 +86,7 @@ Number of tweets you want to analyze for: 20
 The user's sentiment score trend is:  -0.2 0.2 0.2 0.0 -0.4 -0.1 -0.4 -0.1 0.2 0.0 0.2 0.4 0.2 0.2 0.2 0.1 0.2 0.2 0.2 0.2\
 The user's average sentiment score is:  0.07499999999999998
 
-![output](https://github.com/chenchuw/EC601_Project2/blob/main/output.png?raw=true)
+![output](https://github.com/chenchuw/EC601_Project2/blob/main/output_1.png?raw=true)
 
 # User Story
 
