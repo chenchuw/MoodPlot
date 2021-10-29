@@ -189,28 +189,28 @@ Sentiment: 0.2, 0.4
 -------------------------
 Text: RT @redoctbot: Here's the code used to make this post. 👍
 
-#python #tweepy #bot #birthday #programming #100DaysOfCode 
+python #tweepy #bot #birthday #programming #100DaysOfCode 
 
 https://t.co/2VzbWYf…
 Sentiment: 0.0, 0.8
 -------------------------
 Text: RT @redoctbot: Here's the code used to make this post. 👍
 
-#python #tweepy #bot #birthday #programming #100DaysOfCode 
+python #tweepy #bot #birthday #programming #100DaysOfCode 
 
 https://t.co/2VzbWYf…
 Sentiment: 0.0, 0.8
 -------------------------
 Text: RT @redoctbot: Here's the code used to make this post. 👍
 
-#python #tweepy #bot #birthday #programming #100DaysOfCode 
+python #tweepy #bot #birthday #programming #100DaysOfCode 
 
 https://t.co/2VzbWYf…
 Sentiment: 0.0, 0.8
 -------------------------
 Text: Here's the code used to make this post. 👍
 
-#python #tweepy #bot #birthday #programming #100DaysOfCode 
+python #tweepy #bot #birthday #programming #100DaysOfCode 
 
 https://t.co/2VzbWYfQlo
 Sentiment: 0.0, 1.0
