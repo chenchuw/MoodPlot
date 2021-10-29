@@ -54,21 +54,22 @@ Sample output:
 10 tweets are analyzed.
 The user's sentiment score trend is:  0.2 0.2 0.2 0.3 0.2 0.2 0.0 0.1 0.2 0.2
 
-
+![output](https://github.com/chenchuw/EC601_Project2/blob/main/output.png?raw=true)
 
 # User Story
 
-> Story #1
->
-> I haven't seen my brother for a long time, I would like to see how is he doing by using the social media analyzer to anlayze his tweets and see the returned sentiment score to see his mood.
+Story #1
+
+- I haven't seen my brother for a long time, I would like to see how is he doing by using the social media analyzer to anlayze his tweets over a long period and see is he happy or not.
 
 
 # MVP
 
-> A module that can analysis a given context and return a sentiment score
-> 
-> A module that can retrieve text from social media posts
-> 
+- A module that can analysis a given context and return a sentiment score
+ 
+- A module that can retrieve text from social media posts
+
+- A module that can plot the sentiment score over the number of tweets
 
 # Modular Design
 
@@ -124,18 +125,6 @@ Text: Could you pass me the pen?\
 Sentiment: -0.3, 0.3
 
 As we observed here, from a scale of -0.9 to 0.9, the NLP returns the sentiment score of the input sentences, following that more positive sentence get a higher score.
-
-# AutoML Sentiment Analysis
-Second, I investigated Google's AutoML sentiment analysis. In short, I built a machine learning model to analyze attitudes within text & documents. Following are some examples of the sentiment analysis:
-
-![Sentiment#1](https://github.com/Mockingbirdzzz/EC601_Project2/blob/main/Screen%20Shot%202021-09-29%20at%2002.10.23.png?raw=true)
-![Sentiment#2](https://github.com/Mockingbirdzzz/EC601_Project2/blob/main/Screen%20Shot%202021-09-29%20at%2002.12.41.png?raw=true)
-
-# AutoML Text & Document Classification
-I also tried the single text classification feature. In short, I built a machine learning model to classify content into a custom set of categories. Following are some exmpales of the text classification:
-
-![Classification#1](https://github.com/Mockingbirdzzz/EC601_Project2/blob/main/Screen%20Shot%202021-09-29%20at%2002.17.07.png?raw=true)
-![Classification#2](https://github.com/Mockingbirdzzz/EC601_Project2/blob/main/Screen%20Shot%202021-09-29%20at%2002.17.28.png?raw=true)
 
 # Twitter API (Retrieving Tweets)
 
