@@ -9,9 +9,9 @@ from requests import session
 import tweepy # https://github.com/tweepy/tweepy
 
 #Twitter API credentials
-consumer_key = "8KMps10UjAdfCZoLzUMOjJtaX"
-consumer_secret = "wstgm1dNVCgnPWKiBJ1Z7EPnIjQGzrYgLwvUwvC6N2tQ7z1zFv"
-bearer_token = "AAAAAAAAAAAAAAAAAAAAAL5iUAEAAAAAmo6FYRjqdKlI3cNziIm%2BHUQB9Xs%3DS31pj0mxARMTOk2g9dvQ1yP9wknvY4FPBPUlE00smJcncw4dPR"
+consumer_key = ""
+consumer_secret = ""
+bearer_token = ""
 
 # Setting the path for the Google credentials
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "/Users/francischen/Desktop/EC601/ec601.json"
