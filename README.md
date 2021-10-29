@@ -172,9 +172,9 @@ from requests import session
 import tweepy # https://github.com/tweepy/tweepy
 import json
 #Twitter API credentials
-consumer_key = "8KMps10UjAdfCZoLzUMOjJtaX"
-consumer_secret = "wstgm1dNVCgnPWKiBJ1Z7EPnIjQGzrYgLwvUwvC6N2tQ7z1zFv"
-bearer_token = "AAAAAAAAAAAAAAAAAAAAAL5iUAEAAAAAmo6FYRjqdKlI3cNziIm%2BHUQB9Xs%3DS31pj0mxARMTOk2g9dvQ1yP9wknvY4FPBPUlE00smJcncw4dPR"
+consumer_key = "XXXXXXXX"
+consumer_secret = "XXXXXXX"
+bearer_token = "XXXXXXX"
 
 class twitter_access:
 
