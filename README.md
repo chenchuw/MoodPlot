@@ -110,6 +110,10 @@ Story #1
 
 ![modular_design](https://github.com/chenchuw/EC601_Project2/blob/main/module%20design.png?raw=true)
 
+# Unit Testing
+
+Since my python script involves user inputs and the outputs are uncertain (the outputs are obtained from the most recent tweets), it is hard to or I have not yet found a way to implement a unit test for my script.
+
 ** The following sections explain the details of how my app works. **
 
 # Cloud Natural Language API
