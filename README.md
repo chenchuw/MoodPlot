@@ -11,17 +11,15 @@ By using Google NLP and Twitter API, I made an naive product called "Mood Plot" 
 import os
 from matplotlib import pyplot as plt
 from google.cloud import language_v1
-import requests
-from requests import session
-import tweepy # https://github.com/tweepy/tweepy
-
-#Twitter API credentials, which are hidden here for security
-consumer_key = "XXXXXXXX"
-consumer_secret = "XXXXXXXX"
-bearer_token = "XXXXXXXX"
+import tweepy
 
 # Setting the path for the Google credentials
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "/Users/francischen/Desktop/EC601/ec601.json"
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = ""
+
+#Twitter API credentials
+consumer_key = ""
+consumer_secret = ""
+bearer_token = ""
 
 class Twitter_feed:
 
@@ -32,36 +30,54 @@ class Twitter_feed:
         self.sentiments = []
         self.keyword = keyword
         self.count = count
+        self.invalid = 0
 
     def sentiment_analysis(self):
         auth = tweepy.AppAuthHandler(consumer_key, consumer_secret)
         try:
             api = tweepy.API(auth)               
-            #for tweet in tweepy.Cursor(api.search_tweets, q='tweepy').items(10):
             for tweet in api.search_tweets(q = self.keyword, count = self.count):
                 text = tweet.text
                 document = language_v1.Document(content=text, type_=language_v1.Document.Type.PLAIN_TEXT)
-                sentiment = client.analyze_sentiment(request={'document': document}).document_sentiment
+                # Error handling: invalid tweet text for Google NLP
+                try:
+                    sentiment = client.analyze_sentiment(request={'document': document}).document_sentiment
+                except:
+                    self.invalid += 1
+                    print("ERROR: Current tweet's text is invalid for Google NLP analysis...\n-------------------------")
                 print("Text: {}".format(text))
                 print("Sentiment: {:.1f}, {:.1f}\n-------------------------".format(sentiment.score, sentiment.magnitude))
                 self.sentiments.append(round(sentiment.score,3))
-
-        except tweepy.TweepError:
-            print('Error! Failed to get request token.')
+        except:
+            print("ERROR! Current analysis failed due to some reasons...")
 
 if __name__ == '__main__':
-    # Instantiate the client and conduct the analysis
+    # Instantiate the client
     client = language_v1.LanguageServiceClient()
-    keyword = input("Happy to see you here!\nPlease enter a keyword that you are interested in: ")
+
+    # Ask user for inputs
+    keyword = input("Happy to see you here!\nPlease enter a topic that you are interested in: ")
     count = input("Number of tweets you want to analyze for: ")
+
+    # Empty input error handling
+    if not keyword or not count:
+        print('Sorry, please try again and enter a valid topic and number of tweets...')
+        exit()
+
+    # Conduct the analysis
     twitter_acount = Twitter_feed(consumer_key, consumer_secret, keyword, count)
     twitter_acount.sentiment_analysis()
 
-    # Calculate the average sentiment score
-    avg_sentiment = sum(twitter_acount.sentiments)/len(twitter_acount.sentiments)
+    # Calculate the average sentiment score and Check empty searched tweets
+    if len(twitter_acount.sentiments) != 0:
+        avg_sentiment = round(sum(twitter_acount.sentiments)/len(twitter_acount.sentiments),3)
+    else:
+        print("No results found with the given topic... Please try again with another topic :)")
+        exit()
 
     # Print out the results
     print(f"{len(twitter_acount.sentiments)} tweets are analyzed.")
+    print(f"{twitter_acount.invalid} tweets are invalid.")
     print("The user's sentiment score trend is: ",*twitter_acount.sentiments)
     print("The user's average sentiment score is: ", avg_sentiment)
 
@@ -72,7 +88,7 @@ if __name__ == '__main__':
     plt.xlabel("Number of the Tweet")
     plt.ylabel("Sentiment score")
     plt.ylim(-1,1)
-    plt.title(f"Sentiment trend of the topic '{keyword}' over {count} tweets")
+    plt.title(f"Sentiment trend of the topic '{keyword}' over {count} most-recent tweets")
     plt.grid(True)
     plt.show()
 ```
