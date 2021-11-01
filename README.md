@@ -118,9 +118,11 @@ Story #3
 
 ![modular_design](https://github.com/chenchuw/EC601_Project2/blob/main/module%20design.png?raw=true)
 
-# Unit Testing
+# Unit Testing / General Tests
 
-Since my python script involves user inputs and the outputs are uncertain (the outputs are obtained from the most recent tweets which are constantly changing), it is hard to, i.e. I have not yet found a way to implement a unit test for my script.
+- 1. If the tweeter's text is not valid for Google NLP, i.e. language not supported, the program will count the number of invalid tweets and continue to retrive tweets until the user desired amount of tweets are reached.
+- 2. If the user's input for keyword or count is empty, i.e. user forgot to give an input, the program will exit and print a message to remind the user to give a valid topic and number of tweets in the next trial.
+- 3. If the topic from the user is too narrow that there's no recent tweets found about the topic, the program will exit and print a message to inform the user that there are no results found for that specific topic and ask him/her to try another topic.
 
 ** The following sections explain the details of how my app works. **
 
