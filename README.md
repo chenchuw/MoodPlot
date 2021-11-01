@@ -96,6 +96,14 @@ Story #1
 
 - I just heard the new that iPhone 13 was released and I am hesitating of whether I should update my old iPhone, and I'm too lazy to read the reviews about the product, so I use Moodplot to see people's feelings about iPhone 13 to help me decide buy it or not.
 
+Story #2
+
+- I need help deciding which movie to see, Venom 2 or NO TIME TO DIE (James Bonds' new movie!)! So Moodplot can show me the average sentiment score for each of them and I will choose to watch the movie with a higher score.
+
+Story #3
+
+- Halloween is here, but I am not sure what costume is on trend now. Maybe the costume in the Korean show "Squid game" might be a good choice? Let me use Moodplot to check how people like the show, and maybe I'll dress up like the triangle soldier in the show!
+
 # MVP
 
 - A module that can take inputs from user for topic and number of tweets for analysis
