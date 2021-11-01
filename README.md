@@ -99,6 +99,7 @@ Please enter a keyword that you are interested in: tesla\
 Number of tweets you want to analyze for: 20
 
 20 tweets are analyzed.\
+0 tweets are invalid.\
 The user's sentiment score trend is:  -0.2 0.2 0.2 0.0 -0.4 -0.1 -0.4 -0.1 0.2 0.0 0.2 0.4 0.2 0.2 0.2 0.1 0.2 0.2 0.2 0.2\
 The user's average sentiment score is:  0.07499999999999998
 
