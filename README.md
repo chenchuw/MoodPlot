@@ -2,7 +2,7 @@
 
 # Mood Plot
 
-By using Google NLP and Twitter API, I made an naive product called "Mood Plot" that could summarize people's sentiment on a topic over a certain amount of the most recent tweets related to the topic. It could also plot the sentiment trend and the average sentiment score on a graph for visualization. The source code is in the file analyzer.py, also displayed below:
+By using Google NLP and Twitter API, I made an naive product called "Mood Plot" that could summarize people's sentiment on a topic over a certain amount of the most recent tweets related to the topic. It could also plot the sentiment trend and the average sentiment score on a graph for visualization. The source code is in the file moodplot.py, also displayed below:
 
 ``` python
 # Copyright 2021 Chuwei Chen chenchuw@bu.edu
@@ -119,11 +119,49 @@ The user's average sentiment score is:  0.07499999999999998
 
 # Unit Testing / General Tests
 
-- 1. If the tweeter's text is not valid for Google NLP, i.e. language not supported, the program will count the number of invalid tweets and continue to retrive tweets until the user desired amount of tweets are reached.
-- 2. If the user's input for keyword or count is empty, i.e. user forgot to give an input, the program will exit and print a message to remind the user to give a valid topic and number of tweets in the next trial.
-- 3. If the topic from the user is too narrow that there's no recent tweets found about the topic, the program will exit and print a message to inform the user that there are no results found for that specific topic and ask him/her to try another topic.
+- 1. If the tweeter's text is not valid for Google NLP, i.e. language not supported, the program will count the number of invalid tweets and continue to retrive tweets until the user desired amount of tweets are reached. (This test is not written in test_moodplot.py because the recent tweets are changing constantly so I can't make sure there will be invalid tweets for Google NLP everytime.)
+- 2. If the user's input for keyword or count is empty, i.e. user forgot to give an input, the program will return a message to remind the user to give a valid topic and number of tweets in the next trial.
+- 3. If the topic from the user is too narrow that there's no recent tweets found about the topic, the program will return a message to inform the user that there are no results found for that specific topic and ask him/her to try another topic.
+- 4. If the user inputs a non-digit string for count, the program will return a message to ask user for a positive number for count.
+- 5. If the user inputs a 0 or negative number for count, i.e. no tweets for analysis, the program will return a message to ask user for a valid number for count.
 
-![output]()
+Source code of the Unit-test script is in the file test_moodplot.py, also displayed below:
+``` python
+import moodplot as mp
+
+def test_invalidTopic():
+	"If the topic's search result is empty, return the error message"
+
+	assert mp.analysis("SOMETEXTthatIfiguredTHEREwillBEnoResults", '1') == \
+	"No results found with the given topic... Please try again with another topic :)"
+
+
+def test_emptyInputs():
+	"If the user does not give topic or count, return the error message"
+
+	assert mp.analysis("", '5') == \
+	'Sorry, please try again and enter a valid topic and number of tweets...'
+
+
+def test_badCount():
+	"If the user inputs a non-digit string for count, return the error message"
+
+	assert mp.analysis("Olympic", "badinput") == \
+	"Sorry, please give a positive number for number of tweets..."
+
+
+def test_zeroCount():
+	"If the user inputs 0 or negative number for count, return the error message"
+
+	assert mp.analysis("Olympic", '0') == \
+	"Sorry, please try again and enter a valid topic and number of tweets..."
+
+	assert mp.analysis("Olympic", '-1') == \
+	"Sorry, please give a positive number for number of tweets..."
+```
+The output of running ```python -m test``` is displayed below:
+
+![Unittest-output](https://github.com/chenchuw/EC601_Project2/blob/main/UnitTest-output.png?raw=true)
 
 # User Story
 
