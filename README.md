@@ -14,29 +14,30 @@ from google.cloud import language_v1
 import tweepy
 
 # Setting the path for the Google credentials
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = ""
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "/Users/francischen/Desktop/EC601/google_credential.json"
 
 #Twitter API credentials
 consumer_key = ""
 consumer_secret = ""
 bearer_token = ""
 
+# Instantiate the client
+client = language_v1.LanguageServiceClient()
+
 class Twitter_feed:
 
-    def __init__(self,comsumer_Key, consumer_Secret, keyword, count):
+    def __init__(self,comsumer_Key, consumer_Secret):
         self.consumer_key = comsumer_Key
         self.consumer_secret = consumer_Secret
         self.bearer_token = bearer_token
         self.sentiments = []
-        self.keyword = keyword
-        self.count = count
         self.invalid = 0
 
-    def sentiment_analysis(self):
+    def sentiment_analysis(self, keyword, count):
         auth = tweepy.AppAuthHandler(consumer_key, consumer_secret)
         try:
             api = tweepy.API(auth)               
-            for tweet in api.search_tweets(q = self.keyword, count = self.count):
+            for tweet in api.search_tweets(q = keyword, count = count):
                 text = tweet.text
                 document = language_v1.Document(content=text, type_=language_v1.Document.Type.PLAIN_TEXT)
                 # Error handling: invalid tweet text for Google NLP
@@ -51,29 +52,27 @@ class Twitter_feed:
         except:
             print("ERROR! Current analysis failed due to some reasons...")
 
-if __name__ == '__main__':
-    # Instantiate the client
-    client = language_v1.LanguageServiceClient()
-
-    # Ask user for inputs
-    keyword = input("Happy to see you here!\nPlease enter a topic that you are interested in: ")
-    count = input("Number of tweets you want to analyze for: ")
+def analysis(keyword, count):
+    # Type error check
+    if (not count.isdigit()):
+        print("Sorry, please give a positive number for number of tweets...")
+        return ("Sorry, please give a positive number for number of tweets...")
 
     # Empty input error handling
-    if not keyword or not count:
-        print('Sorry, please try again and enter a valid topic and number of tweets...')
-        exit()
+    if (not keyword) or (int(count) <= 0):
+        print ('Sorry, please try again and enter a valid topic and number of tweets...')
+        return ('Sorry, please try again and enter a valid topic and number of tweets...')
 
     # Conduct the analysis
-    twitter_acount = Twitter_feed(consumer_key, consumer_secret, keyword, count)
-    twitter_acount.sentiment_analysis()
+    twitter_acount = Twitter_feed(consumer_key, consumer_secret)
+    twitter_acount.sentiment_analysis(keyword,count)
 
     # Calculate the average sentiment score and Check empty searched tweets
     if len(twitter_acount.sentiments) != 0:
         avg_sentiment = round(sum(twitter_acount.sentiments)/len(twitter_acount.sentiments),3)
     else:
-        print("No results found with the given topic... Please try again with another topic :)")
-        exit()
+        print ("No results found with the given topic... Please try again with another topic :)")
+        return ("No results found with the given topic... Please try again with another topic :)")
 
     # Print out the results
     print(f"{len(twitter_acount.sentiments)} tweets are analyzed.")
@@ -91,6 +90,17 @@ if __name__ == '__main__':
     plt.title(f"Sentiment trend of the topic '{keyword}' over {count} most-recent tweets")
     plt.grid(True)
     plt.show()
+
+def main():
+    # Ask user for inputs
+    keyword = input("Happy to see you here!\nPlease enter a topic that you are interested in: ")
+    count = input("Number of tweets you want to analyze for: ")
+
+    # Call the analysis func!
+    analysis(keyword, count)
+
+if __name__ == '__main__':
+    main()
 ```
 Sample I/O:
 
@@ -106,7 +116,15 @@ The user's average sentiment score is:  0.07499999999999998
 ![output](https://github.com/chenchuw/EC601_Project2/blob/main/output_1.png?raw=true)
 
 ** In order to properly execute the moodplot.py, please prepare your Google NLP credential file first and replace my credential path with your credential file path in the 'Setting the path for the Google credentials' part in moodplot.py **
- 
+
+# Unit Testing / General Tests
+
+- 1. If the tweeter's text is not valid for Google NLP, i.e. language not supported, the program will count the number of invalid tweets and continue to retrive tweets until the user desired amount of tweets are reached.
+- 2. If the user's input for keyword or count is empty, i.e. user forgot to give an input, the program will exit and print a message to remind the user to give a valid topic and number of tweets in the next trial.
+- 3. If the topic from the user is too narrow that there's no recent tweets found about the topic, the program will exit and print a message to inform the user that there are no results found for that specific topic and ask him/her to try another topic.
+
+![output]()
+
 # User Story
 
 Story #1
@@ -134,12 +152,6 @@ Story #3
 # Modular Design
 
 ![modular_design](https://github.com/chenchuw/EC601_Project2/blob/main/module%20design.png?raw=true)
-
-# Unit Testing / General Tests
-
-- 1. If the tweeter's text is not valid for Google NLP, i.e. language not supported, the program will count the number of invalid tweets and continue to retrive tweets until the user desired amount of tweets are reached.
-- 2. If the user's input for keyword or count is empty, i.e. user forgot to give an input, the program will exit and print a message to remind the user to give a valid topic and number of tweets in the next trial.
-- 3. If the topic from the user is too narrow that there's no recent tweets found about the topic, the program will exit and print a message to inform the user that there are no results found for that specific topic and ask him/her to try another topic.
 
 ** The following sections explain the details of how my app works. **
 
