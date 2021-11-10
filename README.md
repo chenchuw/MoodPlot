@@ -2,7 +2,7 @@
 
 # Mood Plot
 
-By using Google NLP and Twitter API, I programmed an naive program called "Mood Plot" that could summarize people's sentiment on a topic over a certain amount of the most recent tweets related to the topic. It could also plot the sentiment trend and the average sentiment score on a graph for visualization. The source code is in the file moodplot.py, also displayed below:
+By using Google NLP and Twitter API, I programmed an naive program called "Mood Plot" that could summarize people's sentiment on a topic over a certain amount of the most recent tweets related to the topic. It could also plot the sentiment trend and the average sentiment score on a graph for visualization. The source code is in the file moodplot.py, and the code and the sample I/O are displayed below:
 
 ``` python
 # Copyright 2021 Chuwei Chen chenchuw@bu.edu
